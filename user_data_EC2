@@ -1,0 +1,46 @@
+sudo yum -y update
+sudo yum -y upgrade
+sudo yum -y install python3 python3-pip
+sudo dnf install mariadb105-server -y
+sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+sudo usermod -a -G apache ec2-user
+exit
+groups
+sudo chown -R ec2-user:apache /var/www
+sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+sudo mysql_secure_installation
+
+y
+y
+Antikonti1
+Antikonti1
+y
+y
+y
+y
+sudo mysql -u root -p
+Antikonti1
+CREATE USER 'antonov'@'localhost' IDENTIFIED BY 'Antikonti1';
+GRANT ALL PRIVILEGES ON links_app.* TO 'antonov'@'localhost';
+FLUSH PRIVILEGES;
+CREATE DATABASE links_app;
+USE links_app;
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+INSERT INTO users (username, password) VALUES ('antonov', 'Antikonti1'), ('plamena', 'Antikonti1');
+CREATE TABLE links (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    url VARCHAR(2083) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+);
+EXIT;
