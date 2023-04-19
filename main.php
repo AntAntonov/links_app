@@ -24,9 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
 }
 
-$sql = "SELECT url, category FROM links INNER JOIN users ON links.user_id = users.id WHERE users.username = ? ORDER BY links.id DESC LIMIT 5";
+$sql = "SELECT url, category FROM links ORDER BY id DESC LIMIT 5";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $_SESSION["username"]);
 $stmt->execute();
 $stmt->bind_result($url, $category);
 ?>
