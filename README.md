@@ -1,12 +1,8 @@
 # links_app
-
- _____ ____  _      _  _    ___  _   _     _  _      _  __ ____ 
-/    //  _ \/ \__/|/ \/ \   \  \//  / \   / \/ \  /|/ |/ // ___\
-|  __\| / \|| |\/||| || |    \  /   | |   | || |\ |||   / |    \
-| |   | |-||| |  ||| || |_/\ / /    | |_/\| || | \|||   \ \___ |
-\_/   \_/ \|\_/  \|\_/\____//_/     \____/\_/\_/  \|\_|\_\\____/
-                                                                
-
+ __                                  
+|_   _   _  . |      |   .  _  |   _ 
+|   (_| ||| | | \/   |__ | | ) |( _) 
+                /                    
 
 Welcome to my LAMP (Linux, Apache, MariaDB, PHP) application, designed to make my life and my girlfriend's communication more organized! The app was created for us, as we often share links with each other but find ourselves losing them in the endless stream of family chats and emails.
 
