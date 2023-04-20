@@ -48,3 +48,11 @@ CREATE TABLE links (
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 EOF
+# Download files from GitHub repo
+sudo wget https://raw.githubusercontent.com/AntAntonov/links_app/main/config.php -O /var/www/html/config.php
+sudo wget https://raw.githubusercontent.com/AntAntonov/links_app/main/index.php -O /var/www/html/index.php
+sudo wget https://raw.githubusercontent.com/AntAntonov/links_app/main/login.php -O /var/www/html/login.php
+sudo wget https://raw.githubusercontent.com/AntAntonov/links_app/main/main.php -O /var/www/html/main.php
+
+sudo chown ec2-user:apache /var/www/html/config.php /var/www/html/index.php /var/www/html/login.php /var/www/html/main.php
+sudo chmod 0664 /var/www/html/config.php /var/www/html/index.php /var/www/html/login.php /var/www/html/main.php
