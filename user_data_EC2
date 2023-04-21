@@ -16,11 +16,13 @@ USER2_PASSWORD=$(echo "${SECRET}" | jq -r '.user2.password')
 sudo yum -y update
 sudo yum -y upgrade
 sudo dnf install mariadb105-server -y
-sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
+sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel mod_php
 sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
 sudo usermod -a -G apache ec2-user
 groups
 sudo chown -R ec2-user:apache /var/www
