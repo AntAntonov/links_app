@@ -2,7 +2,7 @@
 
 sudo yum install -y awscli jq
 
-SECRET=$(aws secretsmanager get-secret-value --secret-id your-secret-id --query SecretString --output text)
+SECRET=$(aws secretsmanager get-secret-value --secret-id arn:aws:secretsmanager:eu-central-1:417492625760:secret:links_app_pass_users-0WLydW --query SecretString --output text)
 
 DB_ADMIN_USERNAME=$(echo "${SECRET}" | jq -r '.db_admin.username')
 DB_ADMIN_PASSWORD=$(echo "${SECRET}" | jq -r '.db_admin.password')
