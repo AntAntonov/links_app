@@ -83,6 +83,7 @@ cat > /var/www/html/composer.json <<EOF
 }
 EOF
 
+export COMPOSER_HOME="/tmp"
 # Change to the /var/www/html directory and install the necessary packages using Composer
 cd /var/www/html
 /usr/local/bin/composer install > /tmp/composer_install.log 2>&1
