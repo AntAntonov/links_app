@@ -41,7 +41,7 @@ EOF
 
 # Change to the /var/www/html directory and install the necessary packages using Composer
 cd /var/www/html
-composer install
+/usr/local/bin/composer install
 
 # Automate mysql_secure_installation
 sudo /bin/mysql_secure_installation <<EOF
