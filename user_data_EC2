@@ -32,7 +32,7 @@ find /var/www -type f -exec sudo chmod 0664 {} \;
 # Install Composer
 sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
-# Move to the /var/www/html directory and install the required packages using Composer
+# Change to the /var/www/html directory and install the necessary packages using Composer
 cd /var/www/html
 composer install
 
