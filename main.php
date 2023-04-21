@@ -8,7 +8,7 @@
 session_start();
 require_once 'config.php';
     
-$apiKey = "6a1b25b423aa7c91779534a0a2ea0697";
+$apiKey = $weather_api_key;
 $city = "Bielefeld";
 $weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric";
 $weatherData = file_get_contents($weatherUrl);
