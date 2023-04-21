@@ -35,7 +35,7 @@ $secrets = json_decode($secretValue, true);
 $servername = $secrets['db_admin']['host'];
 $username = $secrets['db_admin']['username'];
 $password = $secrets['db_admin']['password'];
-$dbname = "link_app_db";
+$dbname = "links_app";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
