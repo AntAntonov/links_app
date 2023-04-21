@@ -16,13 +16,11 @@ USER2_PASSWORD=$(echo "${SECRET}" | jq -r '.user2.password')
 sudo yum -y update
 sudo yum -y upgrade
 sudo dnf install mariadb105-server -y
-sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel mod_php
+sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
 sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
-sudo systemctl start php-fpm
-sudo systemctl enable php-fpm
 sudo usermod -a -G apache ec2-user
 groups
 sudo chown -R ec2-user:apache /var/www
@@ -30,6 +28,13 @@ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
 sudo chown -R ec2-user:apache /var/www/html
 sudo chmod 2775 /var/www/html
 find /var/www -type f -exec sudo chmod 0664 {} \;
+
+# Install Composer
+sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+# Move to the /var/www/html directory and install the required packages using Composer
+cd /var/www/html
+composer install
 
 # Automate mysql_secure_installation
 sudo /bin/mysql_secure_installation <<EOF
@@ -73,11 +78,4 @@ sudo wget https://raw.githubusercontent.com/AntAntonov/links_app/main/login.php 
 sudo wget https://raw.githubusercontent.com/AntAntonov/links_app/main/main.php -O /var/www/html/main.php
 
 sudo chown ec2-user:apache /var/www/html/config.php /var/www/html/index.php /var/www/html/login.php /var/www/html/main.php
-sudo chmod 0664 /var/www/html/config.php /var/www/html/index.php /var/www/html
-
-cd ~
-sudo curl -sS https://getcomposer.org/installer | sudo php
-sudo mv composer.phar /usr/local/bin/composer
-sudo ln -s /usr/local/bin/composer /usr/bin/composer
-cd /var/www/html
-sudo composer require aws/aws-sdk-php
+sudo chmod 0664 /var/www/html/config.php /var/www/html/index.php /var/www/html/login.php /var/www/html/main.php
