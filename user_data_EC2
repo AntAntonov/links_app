@@ -30,19 +30,6 @@ sudo find /var/www -type f -exec chmod 0664 {} \;
 # Install Composer
 sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
-# Create composer.json file in /var/www/html directory
-cat > /var/www/html/composer.json <<EOF
-{
-    "require": {
-        "aws/aws-sdk-php": "^3.0"
-    }
-}
-EOF
-
-# Change to the /var/www/html directory and install the necessary packages using Composer
-cd /var/www/html
-/usr/local/bin/composer install > /tmp/composer_install.log 2>&1
-
 # Automate mysql_secure_installation
 sudo /bin/mysql_secure_installation <<EOF
 
@@ -86,3 +73,16 @@ sudo wget https://raw.githubusercontent.com/AntAntonov/links_app/main/main.php -
 
 sudo chown ec2-user:apache /var/www/html/config.php /var/www/html/index.php /var/www/html/login.php /var/www/html/main.php
 sudo chmod 0664 /var/www/html/config.php /var/www/html/index.php /var/www/html/login.php /var/www/html/main.php
+
+# Create composer.json file in /var/www/html directory
+cat > /var/www/html/composer.json <<EOF
+{
+    "require": {
+        "aws/aws-sdk-php": "^3.0"
+    }
+}
+EOF
+
+# Change to the /var/www/html directory and install the necessary packages using Composer
+cd /var/www/html
+/usr/local/bin/composer install > /tmp/composer_install.log 2>&1
