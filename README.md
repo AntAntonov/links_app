@@ -40,4 +40,8 @@ user_data_EC2: the script used for launching the instance.\
 config.php: Contains the application configuration settings, including database connection information.\
 index.php: Serves as the main entry point for the application.\
 login.php: Handles user authentication and login functionality.\
-main.php: Contains the main application logic.\
+main.php: Contains the main application logic.
+
+![sdd drawio](https://user-images.githubusercontent.com/116178693/233837887-534445be-ca51-46e5-9438-b74e86c16686.png)
+
+
