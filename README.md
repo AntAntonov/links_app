@@ -14,16 +14,17 @@ Deployment Process
 
 An Amazon EC2 instance is launched with the user data script to automate the setup and configuration process.
 The user data script performs the following tasks:
-Installs necessary packages (e.g., AWS CLI, jq, MariaDB, Apache HTTP Server, PHP, and related PHP modules).
-Retrieves sensitive information (e.g., database credentials) from Amazon Secrets Manager.
-Sets up Apache HTTP Server and MariaDB, starts and enables their services.
-Configures the ownership and permissions for the /var/www directory.
-Installs Composer, the PHP dependency management tool.
-Sets up a composer.json file and installs required dependencies (e.g., AWS SDK for PHP) using Composer.
-Automates the mysql_secure_installation process for the MariaDB server.
-Creates the necessary database and tables.
-Downloads the application files from this GitHub repository.
-Sets the ownership and permissions for the application files.
+
+  -Installs necessary packages (e.g., AWS CLI, jq, MariaDB, Apache HTTP Server, PHP, and related PHP modules).
+  -Retrieves sensitive information (e.g., database credentials) from Amazon Secrets Manager. IAM role that allows Secrets Manager Read is set at launch.
+  -Sets up Apache HTTP Server and MariaDB, starts and enables their services.
+  -Configures the ownership and permissions for the /var/www directory.
+  -Installs Composer, the PHP dependency management tool.
+  -Sets up a composer.json file and installs required dependencies (e.g., AWS SDK for PHP) using Composer.
+  -Automates the mysql_secure_installation process for the MariaDB server.
+  -Creates the necessary database and tables.
+  -Downloads the application files from this GitHub repository.
+  -Sets the ownership and permissions for the application files.
 
 After the deployment process is completed, the PHP web application is running on the Amazon EC2 instance.
 Cloudfront distribution is used to protect and accelerate the traffic.
