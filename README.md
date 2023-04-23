@@ -31,6 +31,8 @@ Cloudfront distribution is used to protect and accelerate the traffic.
 
 AWS Backup plan is set to back up the EC2 instance.
 
+CloudWatch alarm that monitors the instance and automatically reboots the instance is added.
+
 Application Files
 user_data_EC2: the script used for launching the instance.
 config.php: Contains the application configuration settings, including database connection information.
