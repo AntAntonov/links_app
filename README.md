@@ -2,13 +2,13 @@
 
 https://d2bs0axkh0sluy.cloudfront.net/
 
-Welcome to my LAMP application, designed to make my life and my girlfriend's communication more organized! The app was created for us, as we often share links with each other but find ourselves losing them in the endless stream of family chats and emails.
+Welcome to my LAMP application, designed to make my life and my girlfriend's communication more organized! The app was created for us, as we often share links with each other but find ourselves losing them in the endless stream of family chats and emails.Also showing the weather in Bielefeld.
 
 With my app, I can easily save and categorize links to various websites, making them easy to access and find whenever I need them. The app includes a user login system, ensuring that only my girlfriend and I have access to our saved links.
 
 Application Overview
 
-The application is a PHP web app deployed on an Amazon EC2 instance. The application is backed by a MariaDB database server.Amazon Secrets Manager is used to store and retrieve sensitive information such as database credentials.
+The application is a PHP web app deployed on an Amazon EC2 instance, running the latest Amazon Linux 2023 version. The application is backed by a MariaDB database server.Amazon Secrets Manager is used to store and retrieve sensitive information such as database credentials and the weather API key.
 
 Deployment Process
 
