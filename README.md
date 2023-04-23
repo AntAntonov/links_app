@@ -27,12 +27,12 @@ The user data script performs the following tasks:
 	-Sets the ownership and permissions for the application files.\
 	
 
-*After the deployment process is completed, the PHP web application is running on the Amazon EC2 instance.
+**After the deployment process is completed, the PHP web application is running on the Amazon EC2 instance.
 Cloudfront distribution is used to protect and accelerate the traffic.
 
-*AWS Backup plan is set to back up the EC2 instance.
+**AWS Backup plan is set to back up the EC2 instance.
 
-*CloudWatch alarm that monitors the instance and automatically reboots the instance is added.
+**CloudWatch alarm that monitors the instance and automatically reboots the instance is added.
 
 Application Files
 
