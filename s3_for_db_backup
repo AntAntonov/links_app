@@ -1,0 +1,5 @@
+aws s3 cp db.sql s3://linksappdbbackuptousewithwget
+
+aws s3 ls s3://linksappdbbackuptousewithwget
+
+arn:aws:s3:::linksappdbbackuptousewithwget
