@@ -46,7 +46,7 @@ The app is deployed using an Amazon EC2 instance with a user data script to auto
 
 The application can be accessed at [https://d2bs0axkh0sluy.cloudfront.net/](https://d2bs0axkh0sluy.cloudfront.net/). Thank you for checking out my app!
 
-to dos:
+to do list:
 - remove the db from the script and wget from S3
 - rework the user input with prepared statements
 - WAF
