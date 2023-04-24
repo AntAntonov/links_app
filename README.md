@@ -51,4 +51,4 @@ to do list:
 - rework the user input with prepared statements
 - WAF
 - DB backup
-
+- add session timeout and log out option
