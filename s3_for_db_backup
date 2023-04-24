@@ -3,3 +3,6 @@ aws s3 cp db.sql s3://linksappdbbackuptousewithwget
 aws s3 ls s3://linksappdbbackuptousewithwget
 
 arn:aws:s3:::linksappdbbackuptousewithwget
+
+wget https://linksappdbbackuptousewithwget.s3.eu-central-1.amazonaws.com/db.sql -P /home/ec2-user/
+
