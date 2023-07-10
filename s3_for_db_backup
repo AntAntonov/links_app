@@ -1,0 +1,34 @@
+aws s3 cp db.sql s3://linksappdbbackuptousewithwget
+
+aws s3 ls s3://linksappdbbackuptousewithwget
+
+arn:aws:s3:::linksappdbbackuptousewithwget
+
+wget https://linksappdbbackuptousewithwget.s3.eu-central-1.amazonaws.com/db.sql -P /home/ec2-user/
+
+
+
+
+sudo mkdir /var/backup
+
+cat > /var/backup/script.sh <<EOF
+# set up all the mysqldump variables
+DATE=`date +"%d_%b_%Y_%H%M"`
+SQLFILE=/var/backup/db/db_backup_${DATE}.sql
+DATABASE=links_app
+USER='${DB_ADMIN_USERNAME}'
+PASSWORD='${DB_ADMIN_PASSWORD}'
+
+# do the mysql database backup (dump)
+sudo mysqldump -u ${USER} -p${PASSWORD} ${DATABASE}|gzip > ${SQLFILE}.gz
+EOF
+
+
+
+sudo mkdir /var/backup/db
+
+
+sudo crontab -e
+    //0 1 * * * /var/backup/script.sh
+    
+sudo find /var/backup/db/. -mtime +14 -exec rm {} \;
